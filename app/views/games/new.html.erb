@@ -1,0 +1,25 @@
+<h1>Games#new</h1>
+<p>Find me in app/views/games/new.html.erb</p>
+<div class="container text-center">
+  <ul class="list-inline">
+    <% @grid.each do |letter| %>
+    <li><%= letter %></li>
+    <% end %>
+  </ul>
+</div>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <form action="/score" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag 'grid', @grid %>
+        <div class="form-group">
+          <input type="text" name="word" placeholder="Enter your word here" class="form-control">
+        </div>
+        <input type="submit" class="btn btn-info">
+      </form>
+    </div>
+  </div>
+</div>
+
+
